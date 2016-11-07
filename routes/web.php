@@ -12,12 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('chat/salas');
 });
 
 Route::group(['prefix' => 'chat', 'as' => 'chat.', 'middleware' => 'auth'], function (){
     Route::get('salas', 'RoomsController@index')->name('rooms.list');
-    Route::get('salas', 'RoomsController@index')->name('rooms.show');
+    Route::get('salas/{id}', 'RoomsController@show')->name('rooms.show');
 });
 
 

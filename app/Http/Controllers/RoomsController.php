@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Room;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RoomsController extends Controller
 {
@@ -11,5 +12,16 @@ class RoomsController extends Controller
         $rooms = Room::all();
 
         return view('rooms.index', compact('rooms'));
+    }
+
+    public function show($id){
+        $room = Room::find($id);
+        if(!$room){
+            throw new ModelNotFoundException('Sala não existente');
+        }
+        $user = Auth::user();
+        $user->room_id = $room->id;
+
+        return view('rooms.show', compact('room'));
     }
 }

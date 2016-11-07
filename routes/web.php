@@ -18,6 +18,7 @@ Route::get('/', function () {
 Route::group(['prefix' => 'chat', 'as' => 'chat.', 'middleware' => 'auth'], function (){
     Route::get('salas', 'RoomsController@index')->name('rooms.list');
     Route::get('salas/{id}', 'RoomsController@show')->name('rooms.show');
+    Route::post('salas/{id}/message', 'RoomsController@createMessage')->name('rooms.createMessage');
 });
 
 

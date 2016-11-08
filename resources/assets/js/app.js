@@ -23,7 +23,7 @@ const app = new Vue({
     },
     methods: {
         sendMessage(){
-            Vue.http.post(`/chat/rooms/${this.roomId}/message`, {
+            Vue.http.post(`/chat/salas/${this.roomId}/message`, {
                 'content': this.content
             });
         }

@@ -68,6 +68,8 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
+"use strict";
+throw new Error("Cannot find module \"laravel-echo\"");
 
 window._ = __webpack_require__(5);
 
@@ -107,12 +109,12 @@ Vue.http.interceptors.push(function (request, next) {
  * allows your team to easily build robust real-time web applications.
  */
 
-// import Echo from "laravel-echo"
 
-// window.Echo = new Echo({
-//     broadcaster: 'pusher',
-//     key: 'your-pusher-key'
-// });
+
+window.Echo = new __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default.a({
+    broadcaster: 'pusher',
+    key: 'f8e4e67c3184ad199ec6'
+});
 
 
 /***/ },
@@ -39222,7 +39224,18 @@ __webpack_require__(0);
 Vue.component('example', __webpack_require__(1));
 
 var app = new Vue({
-    el: '#app'
+    el: '#app',
+    data : {
+        roomId: roomId,
+        content: '',
+    },
+    methods: {
+        sendMessage: function sendMessage(){
+            Vue.http.post(("/chat/rooms/" + (this.roomId) + "/message"), {
+                'content': this.content
+            });
+        }
+    }
 });
 
 

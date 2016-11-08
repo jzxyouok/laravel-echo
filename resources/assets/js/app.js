@@ -16,5 +16,16 @@ require('./bootstrap');
 Vue.component('example', require('./components/Example.vue'));
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    data : {
+        roomId: roomId,
+        content: '',
+    },
+    methods: {
+        sendMessage(){
+            Vue.http.post(`/chat/rooms/${this.roomId}/message`, {
+                'content': this.content
+            });
+        }
+    }
 });

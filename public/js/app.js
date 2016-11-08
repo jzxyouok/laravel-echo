@@ -43812,6 +43812,7 @@ var app = new Vue({
         content: '',
     },
     ready: function ready(){
+        alert('pedro');
         Echo.channel(("room." + roomId))
             .listen('SendMessage', function (e) {
                 console.log(e);

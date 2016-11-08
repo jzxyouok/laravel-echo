@@ -61,7 +61,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 11);
+/******/ 	return __webpack_require__(__webpack_require__.s = 10);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -69,10 +69,10 @@
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_laravel_echo__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_laravel_echo__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_laravel_echo__);
 
-window._ = __webpack_require__(5);
+window._ = __webpack_require__(4);
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -80,8 +80,8 @@ window._ = __webpack_require__(5);
  * code may be modified to fit the specific needs of your application.
  */
 
-window.$ = window.jQuery = __webpack_require__(3);
-__webpack_require__(2);
+window.$ = window.jQuery = __webpack_require__(2);
+__webpack_require__(1);
 
 /**
  * Vue is a modern JavaScript library for building interactive web interfaces
@@ -89,8 +89,8 @@ __webpack_require__(2);
  * and simple, leaving you to focus on building your next great project.
  */
 
-window.Vue = __webpack_require__(8);
-__webpack_require__(7);
+window.Vue = __webpack_require__(7);
+__webpack_require__(6);
 
 /**
  * We'll register a HTTP interceptor to attach the "CSRF" header to each of
@@ -120,11 +120,8 @@ window.Echo = new __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default.a({
 });
 
 
-
-
 /***/ },
-/* 1 */,
-/* 2 */
+/* 1 */
 /***/ function(module, exports) {
 
 /*!
@@ -2507,7 +2504,7 @@ if (typeof jQuery === 'undefined') {
 
 
 /***/ },
-/* 3 */
+/* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -12733,7 +12730,7 @@ return jQuery;
 
 
 /***/ },
-/* 4 */
+/* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
 var classCallCheck = function (instance, Constructor) {
@@ -13240,7 +13237,7 @@ var Echo = function () {
         }
         if (this.options.broadcaster == 'pusher') {
             if (!window['Pusher']) {
-                window['Pusher'] = __webpack_require__(6);
+                window['Pusher'] = __webpack_require__(5);
             }
             this.connector = new PusherConnector(this.options);
         } else if (this.options.broadcaster == 'socket.io') {
@@ -13309,7 +13306,7 @@ var Echo = function () {
 module.exports = Echo;
 
 /***/ },
-/* 5 */
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -30331,10 +30328,10 @@ module.exports = Echo;
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9), __webpack_require__(10)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8), __webpack_require__(9)(module)))
 
 /***/ },
-/* 6 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 /*!
@@ -34438,7 +34435,7 @@ return /******/ (function(modules) { // webpackBootstrap
 ;
 
 /***/ },
-/* 7 */
+/* 6 */
 /***/ function(module, exports) {
 
 "use strict";
@@ -35962,7 +35959,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 module.exports = plugin;
 
 /***/ },
-/* 8 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 /*!
@@ -43737,7 +43734,7 @@ return Vue$2;
 
 
 /***/ },
-/* 9 */
+/* 8 */
 /***/ function(module, exports) {
 
 var g;
@@ -43762,7 +43759,7 @@ module.exports = g;
 
 
 /***/ },
-/* 10 */
+/* 9 */
 /***/ function(module, exports) {
 
 module.exports = function(module) {
@@ -43788,7 +43785,7 @@ module.exports = function(module) {
 
 
 /***/ },
-/* 11 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 
@@ -43807,24 +43804,18 @@ __webpack_require__(0);
  */
 
 //Vue.component('example', require('./components/Example.vue'));
-//Vue.component('example', require('./components/Example.vue'));
-$( document ).ready(function() {
-    Echo.channel('room.2').listen('SendMessage', function (e) {console.log(e)});
-});
+
 var app = new Vue({
     el: '#app',
     data : {
         roomId: roomId,
         content: '',
     },
-    ready: function ready(){
-        //Echo.channel(`room.${roomId}`).listen('SendMessage', (e) => {console.log(e)})
-    },
-    methods: {
+    methods : {
         sendMessage: function sendMessage(){
             Vue.http.post(("/chat/salas/" + (this.roomId) + "/message"), {
-                'content': this.content
-            });
+                'content' : this.content
+            })
         }
     }
 });

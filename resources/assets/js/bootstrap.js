@@ -45,5 +45,3 @@ window.Echo = new Echo({
     cluster : 'MT1',
     encrypted : true
 });
-
-

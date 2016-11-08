@@ -61,7 +61,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 13);
+/******/ 	return __webpack_require__(__webpack_require__.s = 11);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -69,10 +69,10 @@
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_laravel_echo__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_laravel_echo__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_laravel_echo__);
 
-window._ = __webpack_require__(6);
+window._ = __webpack_require__(5);
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -80,7 +80,7 @@ window._ = __webpack_require__(6);
  * code may be modified to fit the specific needs of your application.
  */
 
-window.$ = window.jQuery = __webpack_require__(4);
+window.$ = window.jQuery = __webpack_require__(3);
 __webpack_require__(2);
 
 /**
@@ -89,8 +89,8 @@ __webpack_require__(2);
  * and simple, leaving you to focus on building your next great project.
  */
 
-window.Vue = __webpack_require__(10);
-__webpack_require__(9);
+window.Vue = __webpack_require__(8);
+__webpack_require__(7);
 
 /**
  * We'll register a HTTP interceptor to attach the "CSRF" header to each of
@@ -114,55 +114,16 @@ Vue.http.interceptors.push(function (request, next) {
 
 window.Echo = new __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default.a({
     broadcaster: 'pusher',
-    key: 'f8e4e67c3184ad199ec6'
+    key: 'f8e4e67c3184ad199ec6',
+    cluster : 'MT1',
+    encrypted : true
 });
 
 
-/***/ },
-/* 1 */
-/***/ function(module, exports, __webpack_require__) {
-
-var __vue_exports__, __vue_options__
-var __vue_styles__ = {}
-
-/* script */
-__vue_exports__ = __webpack_require__(3)
-
-/* template */
-var __vue_template__ = __webpack_require__(8)
-__vue_options__ = __vue_exports__ = __vue_exports__ || {}
-if (
-  typeof __vue_exports__.default === "object" ||
-  typeof __vue_exports__.default === "function"
-) {
-if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
-__vue_options__ = __vue_exports__ = __vue_exports__.default
-}
-if (typeof __vue_options__ === "function") {
-  __vue_options__ = __vue_options__.options
-}
-__vue_options__.__file = "C:\\laragon\\www\\chat\\resources\\assets\\js\\components\\Example.vue"
-__vue_options__.render = __vue_template__.render
-__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-e78e6c7a", __vue_options__)
-  } else {
-    hotAPI.reload("data-v-e78e6c7a", __vue_options__)
-  }
-})()}
-if (__vue_options__.functional) {console.error("[vue-loader] Example.vue: functional components are not supported and should be defined in plain js files using render functions.")}
-
-module.exports = __vue_exports__
 
 
 /***/ },
+/* 1 */,
 /* 2 */
 /***/ function(module, exports) {
 
@@ -2547,35 +2508,6 @@ if (typeof jQuery === 'undefined') {
 
 /***/ },
 /* 3 */
-/***/ function(module, exports, __webpack_require__) {
-
-"use strict";
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ exports["default"] = {
-    mounted: function mounted() {
-        console.log('Component ready.')
-    }
-};
-
-
-/***/ },
-/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -12801,7 +12733,7 @@ return jQuery;
 
 
 /***/ },
-/* 5 */
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
 var classCallCheck = function (instance, Constructor) {
@@ -13308,7 +13240,7 @@ var Echo = function () {
         }
         if (this.options.broadcaster == 'pusher') {
             if (!window['Pusher']) {
-                window['Pusher'] = __webpack_require__(7);
+                window['Pusher'] = __webpack_require__(6);
             }
             this.connector = new PusherConnector(this.options);
         } else if (this.options.broadcaster == 'socket.io') {
@@ -13377,7 +13309,7 @@ var Echo = function () {
 module.exports = Echo;
 
 /***/ },
-/* 6 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -30399,10 +30331,10 @@ module.exports = Echo;
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11), __webpack_require__(12)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9), __webpack_require__(10)(module)))
 
 /***/ },
-/* 7 */
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 /*!
@@ -34506,35 +34438,7 @@ return /******/ (function(modules) { // webpackBootstrap
 ;
 
 /***/ },
-/* 8 */
-/***/ function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){with(this) {
-  return _m(0)
-}},staticRenderFns: [function (){with(this) {
-  return _h('div', {
-    staticClass: "container"
-  }, [_h('div', {
-    staticClass: "row"
-  }, [_h('div', {
-    staticClass: "col-md-8 col-md-offset-2"
-  }, [_h('div', {
-    staticClass: "panel panel-default"
-  }, [_h('div', {
-    staticClass: "panel-heading"
-  }, ["Example Component"]), " ", _h('div', {
-    staticClass: "panel-body"
-  }, ["\n                    I'm an example component!\n                "])])])])])
-}}]}
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-e78e6c7a", module.exports)
-  }
-}
-
-/***/ },
-/* 9 */
+/* 7 */
 /***/ function(module, exports) {
 
 "use strict";
@@ -36058,7 +35962,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 module.exports = plugin;
 
 /***/ },
-/* 10 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 /*!
@@ -43833,7 +43737,7 @@ return Vue$2;
 
 
 /***/ },
-/* 11 */
+/* 9 */
 /***/ function(module, exports) {
 
 var g;
@@ -43858,7 +43762,7 @@ module.exports = g;
 
 
 /***/ },
-/* 12 */
+/* 10 */
 /***/ function(module, exports) {
 
 module.exports = function(module) {
@@ -43884,7 +43788,7 @@ module.exports = function(module) {
 
 
 /***/ },
-/* 13 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 
@@ -43902,13 +43806,19 @@ __webpack_require__(0);
  * the application, or feel free to tweak this setup for your needs.
  */
 
-Vue.component('example', __webpack_require__(1));
-
+//Vue.component('example', require('./components/Example.vue'));
+//Vue.component('example', require('./components/Example.vue'));
+$( document ).ready(function() {
+    Echo.channel('room.2').listen('SendMessage', function (e) {console.log(e)});
+});
 var app = new Vue({
     el: '#app',
     data : {
         roomId: roomId,
         content: '',
+    },
+    ready: function ready(){
+        //Echo.channel(`room.${roomId}`).listen('SendMessage', (e) => {console.log(e)})
     },
     methods: {
         sendMessage: function sendMessage(){

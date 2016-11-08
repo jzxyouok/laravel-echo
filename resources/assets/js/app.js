@@ -13,13 +13,19 @@ require('./bootstrap');
  * the application, or feel free to tweak this setup for your needs.
  */
 
-Vue.component('example', require('./components/Example.vue'));
-
+//Vue.component('example', require('./components/Example.vue'));
+//Vue.component('example', require('./components/Example.vue'));
+$( document ).ready(function() {
+    Echo.channel('room.2').listen('SendMessage', (e) => {console.log(e)});
+});
 const app = new Vue({
     el: '#app',
     data : {
         roomId: roomId,
         content: '',
+    },
+    ready(){
+        //Echo.channel(`room.${roomId}`).listen('SendMessage', (e) => {console.log(e)})
     },
     methods: {
         sendMessage(){

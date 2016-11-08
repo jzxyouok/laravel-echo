@@ -38,6 +38,8 @@ class RoomsController extends Controller
         $message->user_id = Auth::user()->id;
         $message->save();
 
+        broadcast(new SendMessage($message));
+
         return response()->json($message, 201);
     }
 }

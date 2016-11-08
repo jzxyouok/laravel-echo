@@ -43811,6 +43811,12 @@ var app = new Vue({
         roomId: roomId,
         content: '',
     },
+    ready: function ready(){
+        Echo.channel(("room." + roomId))
+            .listen('SendMessage', function (e) {
+                console.log(e);
+            });
+    },
     methods : {
         sendMessage: function sendMessage(){
             Vue.http.post(("/chat/salas/" + (this.roomId) + "/message"), {

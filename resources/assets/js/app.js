@@ -21,6 +21,12 @@ const app = new Vue({
         roomId: roomId,
         content: '',
     },
+    ready(){
+        Echo.channel(`room.${roomId}`)
+            .listen('SendMessage', (e) => {
+                console.log(e);
+            });
+    },
     methods : {
         sendMessage(){
             Vue.http.post(`/chat/salas/${this.roomId}/message`, {

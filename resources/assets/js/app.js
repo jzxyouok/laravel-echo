@@ -21,12 +21,14 @@ const app = new Vue({
         roomId: roomId,
         roomName : roomName,
         content: '',
-        users : []
+        users : [],
+        messages : [],
+        userId : userId,
     },
     mounted(){ //Versão 2.0 do VUE muda de Ready para Mounted
         Echo.join(`room.${roomId}`)
             .listen('SendMessage', (e) => {
-                console.log(e);
+                this.messages.push(e);
             })
             .here((users) => {
                 this.users = users;
@@ -36,7 +38,7 @@ const app = new Vue({
                 jQuery.notify(`<strong>${user.name}</strong> entrou na sala <b>${this.roomName}</b>`, {allow_dismiss: true});
             })
             .leaving((user) => {
-                this.users.$remove(user);
+                this.removeUser(user);
             })
     },
     methods : {
@@ -44,6 +46,13 @@ const app = new Vue({
             Vue.http.post(`/chat/salas/${this.roomId}/message`, {
                 'content' : this.content
             })
+        },
+        removeUser: function (user) {
+            var index = this.users.indexOf(user);
+            this.users.splice(index, 1)
+        },
+        createPhoto(email){
+            return `http://www.gravatar.com/avatar/${md5(email)}.jpg`;
         }
     }
 });

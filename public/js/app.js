@@ -43811,10 +43811,10 @@ var app = new Vue({
         roomId: roomId,
         content: '',
     },
-    ready: function ready(){
-        alert('pedro');
+    mounted: function mounted(){
         Echo.channel(("room." + roomId))
             .listen('SendMessage', function (e) {
+                alert('pedro');
                 console.log(e);
             });
     },

@@ -8,7 +8,6 @@
 
 namespace App\Events;
 
-
 use App\Message;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;

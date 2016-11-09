@@ -114,9 +114,7 @@ Vue.http.interceptors.push(function (request, next) {
 
 window.Echo = new __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default.a({
     broadcaster: 'pusher',
-    key: 'f8e4e67c3184ad199ec6',
-    cluster : 'MT1',
-    encrypted : true
+    key: 'f8e4e67c3184ad199ec6'
 });
 
 
@@ -43814,7 +43812,6 @@ var app = new Vue({
     mounted: function mounted(){
         Echo.channel(("room." + roomId))
             .listen('SendMessage', function (e) {
-                alert('pedro');
                 console.log(e);
             });
     },

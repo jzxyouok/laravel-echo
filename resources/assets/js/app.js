@@ -24,7 +24,6 @@ const app = new Vue({
     mounted(){
         Echo.channel(`room.${roomId}`)
             .listen('SendMessage', (e) => {
-                alert('pedro');
                 console.log(e);
             });
     },

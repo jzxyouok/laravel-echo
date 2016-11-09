@@ -6,8 +6,8 @@
             <div class="col-md-2">
                 <h3>Usuários</h3>
                 <ul class="list-group">
-                    <li class="list-group-item">
-                        <a href="#"></a>
+                    <li class="list-group-item" v-for="o in users">
+                        <a href="#">[[ o.name ]]</a>
                     </li>
                 </ul>
             </div>
@@ -38,5 +38,7 @@
 @section('pre-script')
     <script type="text/javascript">
         var roomId = "{{$room->id}}";
+        var roomName = "{{ $room->name }}";
+
     </script>
     @endsection

@@ -10,6 +10,7 @@ namespace App\Events;
 
 use App\Message;
 use Illuminate\Broadcasting\Channel;
+use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Auth;
@@ -30,7 +31,7 @@ class SendMessage implements ShouldBroadcast
 
     public function broadcastOn()
     {
-        return new Channel("room.{$this->message->room_id}");
+        return new PresenceChannel("room.{$this->message->room_id}");
     }
 
 }

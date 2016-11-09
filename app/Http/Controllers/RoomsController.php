@@ -23,6 +23,7 @@ class RoomsController extends Controller
         }
         $user = Auth::user();
         $user->room_id = $room->id;
+        $user->save();
 
         return view('rooms.show', compact('room'));
     }

@@ -14,18 +14,30 @@ require('./bootstrap');
  */
 
 //Vue.component('example', require('./components/Example.vue'));
-
 const app = new Vue({
     el: '#app',
+    delimiters : ['[[', ']]'], //Versão 2.0 do VUE
     data : {
         roomId: roomId,
+        roomName : roomName,
         content: '',
+        users : []
     },
-    mounted(){
-        Echo.channel(`room.${roomId}`)
+    mounted(){ //Versão 2.0 do VUE muda de Ready para Mounted
+        Echo.join(`room.${roomId}`)
             .listen('SendMessage', (e) => {
                 console.log(e);
-            });
+            })
+            .here((users) => {
+                this.users = users;
+            })
+            .joining((user) => {
+                this.users.push(user);
+                jQuery.notify(`<strong>${user.name}</strong> entrou na sala <b>${this.roomName}</b>`, {allow_dismiss: true});
+            })
+            .leaving((user) => {
+                this.users.$remove(user);
+            })
     },
     methods : {
         sendMessage(){
